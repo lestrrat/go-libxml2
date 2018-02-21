@@ -6,6 +6,10 @@
 
 Interface to libxml2, with DOM interface.
 
+# WARNING
+
+This repository has been moved to [github.com/lestrrat-go/libxml2](https://github.com/lestrrat-go/libxml2). This repository exists so that libraries pointing to this URL will keep functioning, but this repository will NOT be updated in the future. Please use the new import path.
+
 ## Why?
 
 I needed to write [go-xmlsec](https://github.com/lestrrat/go-xmlsec). This means we need to build trees using libxml2, and then muck with it in xmlsec: Two separate packages in Go means we cannot (safely) pass around `C.xmlFooPtr` objects (also, you pay a penalty for pointer types). This package carefully avoid references to `C.xmlFooPtr` types and uses uintptr to pass data around, so other libraries that needs to interact with libxml2 can safely interact with it.
